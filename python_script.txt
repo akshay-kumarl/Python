@@ -1,0 +1,132 @@
+****Python scripts**** 
+
+
+
+
+import psutil
+
+
+cpu_usage = psutil.cpu_percent(interval=1)
+print(f"CPU Usage: {cpu_usage}%")
+
+
+
+memory_info = psutil.virtual_memory()
+
+print(f"Memory information: {memory_info}")
+
+memory_percent = psutil.virtual_memory().percent
+print(f"Memory Usage percentage: {memory_percent}%")
+
+disk_usage = psutil.disk_usage('/')     
+print(f"Disk Usage: {disk_usage.percent}%")
+
+=============================================================================================
+
+
+
+import os
+def start_service(service_name):
+    os.system(f'systemctl start {service_name}')
+    print(f'Service {service_name} started.')
+
+
+def stop_service(service_name):
+    os.system(f'systemctl stop {service_name}')
+    print(f'Service {service_name} stopped.')
+
+def restart_service(service_name):
+    os.system(f'systemctl restart {service_name}')
+    print(f'Service {service_name} restarted.')
+
+def status_service(service_name):
+    os.system(f'systemctl status {service_name}')   
+    print(f'Status of service {service_name} displayed.')
+
+if __name__ == "__main__":  
+    
+    service = input("Enter the service name to manage: ")
+
+    start_service(service)
+    status_service(service)
+    restart_service(service)
+    stop_service(service)
+
+
+=============================================================================================
+
+  import os
+
+  def list_docker_containers():
+    os.system('docker ps -a')
+    print('Listed all Docker containers.')
+
+
+  if __name__ == "__main__":  
+    list_docker_containers()
+
+
+=============================================================================================
+
+
+
+
+### must install aws cli and configure with access key and secret key
+    import boto3
+    def create_ec2_instance():
+
+    ec2 = boto3.resource('ec2')
+
+    instance = ec2.create_instances(
+        ImageId='ami-0532be01f26a3de55',  # Replace with a valid AMI ID
+        MinCount=1,
+        MaxCount=1,
+        InstanceType='t2.micro',
+        KeyName='testkey'  # Replace with your key pair name
+    )
+
+    print(f'Created EC2 Instance with ID: {instance[0].id}')
+
+   def list_ec2_instances():
+    ec2 = boto3.client('ec2')
+    response = ec2.describe_instances()
+
+    for reservation in response['Reservations']:
+        for instance in reservation['Instances']:
+            print(f'Instance ID: {instance["InstanceId"]}, State: {instance["State"]["Name"]}')  
+
+   if __name__ == "__main__":
+    create_ec2_instance()
+    list_ec2_instances()
+
+
+=============================================================================================
+
+
+
+import psutil
+import os   
+
+
+
+cpu_percent = psutil.cpu_percent(interval=1)
+
+print(f"CPU Usage: {cpu_percent}%")
+
+memory_info = psutil.virtual_memory()
+
+print(f"Memory information: {memory_info}")
+
+print(f"RAM Usage: {memory_info.percent}%")
+
+disk_usage = psutil.disk_usage('/')
+
+print(f"Disk Usage: {disk_usage.percent}%")
+
+
+=============================================================================================
+
+
+
+
+
