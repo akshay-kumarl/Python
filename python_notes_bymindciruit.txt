@@ -1020,7 +1020,17 @@ while i < 101:
     i = i + 1 
 
 print("Loop finished!")
-	
+
+-------------------------------------------------------------------
+FOR  LOOP:
+
+
+fruits = ["apple", "banana", "cherry","acc"]
+
+for fruit in fruits:
+    print(fruit)
+
+
 -------------------------------------------------------------------
 BREAK & CONTINUE :
 
