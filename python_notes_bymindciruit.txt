@@ -1022,16 +1022,6 @@ while i < 101:
 print("Loop finished!")
 
 -------------------------------------------------------------------
-FOR  LOOP:
-
-
-fruits = ["apple", "banana", "cherry","acc"]
-
-for fruit in fruits:
-    print(fruit)
-
-
--------------------------------------------------------------------
 BREAK & CONTINUE :
 
 In Python, break and continue are control flow statements used inside loops (for and while). They help control the flow of loop execution based on certain conditions
